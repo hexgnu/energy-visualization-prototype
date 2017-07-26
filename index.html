@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+        <script type="text/javascript" src="jquery.ui.treemap.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script type="text/javascript" src="local.js"></script>
+        <link rel="stylesheet" href="local.css">
+        <title>Energy Usage Console</title>
+    </head>
+
+    <body>
+        <h2>Energy Usage Console</h2>
+        <div id="highlighter"></div>
+        <div id="highlighter-selected"></div>
+        <div id="treemap"></div>
+        <div id="buttons">
+            <a href="#" class="time-button today-button myButton" onclick="updateToday()">By Day</a>
+            <a href="#" class="time-button week-button myButton" onclick="updateToWeek()">By Week</a>
+            <a href="#" class="time-button month-button myButton" onclick="updateToMonth()">By Month</a>
+            <div class="spacer"></div>
+            <a href="#" class="type-button dev-button myButton" onclick="updateToDevice()" >By Device</a>
+            <a href="#" class="type-button cat-button myButton selected" onclick="updateToCategory()">By Category</a>
+        </div>
+
+        <div id="details" style="display:none">
+            <div id="details-text">
+                <div id="details-name" class="details-text"></div>
+                <div id="details-val" class="details-text"></div>
+                <div id="details-cost" class="details-text"></div>
+                <div id="details-tips" class="details-text"></div>
+            </div>
+            <div id="details-history-buttons">
+                <a href="#" id="prevButton" class="myButton selected" onclick="doPrevious()">Previous</a>
+                <div id="date-label">Test</div>
+                <a href="#" id="nextButton" class="myButton selected" onclick="doNext()">Next</a>
+            </div>
+            <div id="details-graph"></div>
+        </div>
+
+        <div id="settings">
+            <span>Alerts: &nbsp;</span>
+            <label><input type="radio" name="alert" value="none" checked="checked">None</label>
+            <label><input type="radio" name="alert" value="abnormal">Abnormal Usage</label>
+            <label><input type="radio" name="alert" value="weekly">Weekly Summary</label>
+            <label><input type="radio" name="alert" value="monthly">Monthly Summary</label>
+        </div>
+    </body>
+</html>
